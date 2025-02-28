@@ -1,0 +1,106 @@
+{
+    "name": "laravel/laravel",
+    "type": "project",
+    "description": "The skeleton application for the Laravel framework.",
+    "keywords": ["laravel", "framework"],
+    "license": "MIT",
+    "require": {
+        "php": "^8.1",
+        "guzzlehttp/guzzle": "^7.2",
+        "laravel/framework": "^10.10",
+        "laravel/sanctum": "^3.3",
+        "laravel/tinker": "^2.8",
+        "ext-curl": "*",
+        "ext-json": "*",
+        "ext-openssl": "*",
+        "barryvdh/laravel-dompdf": "*",
+        "brian2694/laravel-toastr": "^5.54",
+        "dgvai/laravel-sslcommerz": "^1.0",
+        "doctrine/dbal": "^3.0",
+        "gregwar/captcha": "^1.1",
+        "intervention/image": "^2.5",
+        "iyzico/iyzipay-php": "^2.0",
+        "kingflamez/laravelrave": "*",
+        "kreait/firebase-php": "^7.10",
+        "laravel/passport": "^11.0",
+        "laravel/ui": "^4.0",
+        "lcobucci/jwt": "^4.1",
+        "madnest/madzipper": "^1.1",
+        "mercadopago/dx-php": "2.4.2",
+        "nwidart/laravel-modules": "^9.0",
+        "paypal/rest-api-sdk-php": "^1.6",
+        "rap2hpoutre/fast-excel": "^5.3",
+        "razorpay/razorpay": "^2.5",
+        "simplesoftwareio/simple-qrcode": "~4",
+        "stripe/stripe-php": "^7.61",
+        "twilio/sdk": "^6.28",
+        "unicodeveloper/laravel-paystack": "^1.0",
+        "xendit/xendit-php": "^2.19"
+    },
+    "require-dev": {
+        "barryvdh/laravel-debugbar": "^3.15",
+        "fakerphp/faker": "^1.9.1",
+        "laravel/sail": "^1.18",
+        "mockery/mockery": "^1.4.4",
+        "nunomaduro/collision": "^7.0",
+        "phpunit/phpunit": "^10.1",
+        "spatie/laravel-ignition": "^2.0"
+    },
+    "autoload": {
+        "files": [
+            "app/CentralLogics/banner.php",
+            "app/CentralLogics/category.php",
+            "app/CentralLogics/product.php",
+            "app/CentralLogics/helpers.php",
+            "app/CentralLogics/order.php",
+            "app/CentralLogics/sms_module.php",
+            "app/CentralLogics/Translation.php",
+            "app/CentralLogics/Constants.php",
+            "app/Library/Constant.php",
+            "app/Library/Responses.php",
+            "app/CentralLogics/AddFundHook.php"
+        ],
+        "psr-4": {
+            "App\\": "app/",
+            "Database\\Factories\\": "database/factories/",
+            "Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "post-autoload-dump": [
+            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+            "@php artisan package:discover --ansi"
+        ],
+        "post-update-cmd": [
+            "@php artisan vendor:publish --tag=laravel-assets --ansi --force"
+        ],
+        "post-root-package-install": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ],
+        "post-create-project-cmd": [
+            "@php artisan key:generate --ansi"
+        ]
+    },
+    "extra": {
+        "laravel": {
+            "dont-discover": []
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "php-http/discovery": true,
+            "composer/package-versions-deprecated": true
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}

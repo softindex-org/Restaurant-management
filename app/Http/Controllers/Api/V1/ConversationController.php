@@ -82,7 +82,7 @@ class ConversationController extends Controller
             if (!empty($request->file('image'))) {
                 foreach ($request->image as $img) {
                     $image = Helpers::upload('conversation/', 'png', $img);
-                    $imageUrl = asset('storage/app/public/conversation') . '/' . $image;
+                    $imageUrl = asset('storage/conversation') . '/' . $image;
                     $imageNames[] = $imageUrl;
                 }
                 $images = $imageNames;
@@ -100,7 +100,7 @@ class ConversationController extends Controller
                 'title' => $request->user()->f_name . ' ' . $request->user()->l_name . translate(' send a message'),
                 'description' => $request->user()->id,
                 'order_id' => '',
-                'image' => asset('storage/app/public/restaurant') . '/' . $this->business_setting->where(['key' => 'logo'])->first()->value,
+                'image' => asset('storage/restaurant') . '/' . $this->business_setting->where(['key' => 'logo'])->first()->value,
                 'type' => 'order_status',
             ];
 
@@ -244,7 +244,7 @@ class ConversationController extends Controller
         if (!empty($request->file('image'))) {
             foreach ($request->image as $img) {
                 $image = Helpers::upload('conversation/', 'png', $img);
-                $imageUrl = asset('storage/app/public/conversation') . '/' . $image;
+                $imageUrl = asset('storage/conversation') . '/' . $image;
                 $imageNames[] = $imageUrl;
             }
             $images = $imageNames;

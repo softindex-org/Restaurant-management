@@ -8,7 +8,7 @@ $logo = \App\Model\BusinessSetting::where('key','fav_icon')->first()?->value;
     <tr>
         <td style="padding:30px 30px 0">
             <img class="mail-img-2" onerror="this.src='{{ asset('public/assets/admin/img/blank3.png') }}'"
-            src="{{ asset('storage/app/public/email_template/') }}/{{ $data['icon']??'' }}" id="iconViewer" alt="">
+            src="{{ asset('storage/email_template/') }}/{{ $data['icon']??'' }}" id="iconViewer" alt="">
             <h3 style="font-size:17px;font-weight:500" class="mt-2" id="mail-title">{{ $data['title']?? translate('Main_Title_or_Subject_of_the_Mail') }}</h3>
 
         </td>
@@ -29,7 +29,7 @@ $logo = \App\Model\BusinessSetting::where('key','fav_icon')->first()?->value;
             <span class="d-block">{{ translate('Thanks_&_Regards') }},</span>
             <span class="d-block" style="margin-bottom:20px">{{ $company_name }}</span>
 
-            <img style="width:120px;display:block;margin:10px auto" onerror="this.src='{{asset('public/assets/admin/img/favicon.png')}}'" src="{{ asset('storage/app/public/business/' . $logo) }}" alt="public/img">
+            <img style="width:120px;display:block;margin:10px auto" onerror="this.src='{{asset('public/assets/admin/img/favicon.png')}}'" src="{{ asset('storage/business/' . $logo) }}" alt="public/img">
         </td>
     </tr>
     <tr>

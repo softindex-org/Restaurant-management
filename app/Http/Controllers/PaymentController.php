@@ -101,7 +101,7 @@ class PaymentController extends Controller
 
         $additional_data = [
             'business_name' => Helpers::get_business_settings('restaurant_name') ?? '',
-            'business_logo' => asset('storage/app/public/restaurant/' . Helpers::get_business_settings('logo'))
+            'business_logo' => asset('storage/restaurant/' . Helpers::get_business_settings('logo'))
         ];
 
         //add fund to wallet

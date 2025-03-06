@@ -14,7 +14,7 @@
 
                                 <div class="d-flex justify-content-center">
                                     <a href="" class="qr-logo">
-                                        <img src="{{asset('storage/app/public/restaurant/'.$restaurantLogo)}}" class="mw-100"
+                                        <img src="{{asset('storage/restaurant/'.$restaurantLogo)}}" class="mw-100"
                                         onerror="this.src='{{asset('assets/admin/img/logo2.png')}}'" alt="">
                                     </a>
                                 </div>

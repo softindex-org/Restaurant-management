@@ -16,7 +16,7 @@
                         <label class="label_1">Orders : {{$item['count']}}</label>
                         <div class="text-center mt-6">
                             <img class="custom-img-design"
-                                 src="{{asset('storage/app/public/shop/'.$shop->image  ?? '' )}}">
+                                 src="{{asset('storage/shop/'.$shop->image  ?? '' )}}">
                         </div>
                         <div class="text-center mt-2">
                             <span class="custom-text-size">{{$shop['name']??'Not exist'}}</span>

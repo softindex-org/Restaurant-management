@@ -6,7 +6,7 @@ $company_name = App\Models\BusinessSetting::where('key', 'business_name')->first
         <tr>
             <td class="main-table-td">
                 <img class="mail-img-1" onerror="this.src='{{ asset('public/assets/admin/img/blank1.png') }}'"
-                src="{{ asset('storage/app/public/email_template/') }}/{{ $data['logo']??'' }}" id="logoViewer" alt="">
+                src="{{ asset('storage/email_template/') }}/{{ $data['logo']??'' }}" id="logoViewer" alt="">
                 <h2 id="mail-title" class="mt-2">{{ $data['title']?? translate('Main_Title_or_Subject_of_the_Mail') }}</h2>
                 <div class="mb-1" id="mail-body">{!! $data['body']?? translate('Hi_Sabrina,') !!}</div>
                 <hr>

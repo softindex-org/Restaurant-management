@@ -16,8 +16,8 @@ $company_name = App\Model\BusinessSetting::where('key', 'restaurant_name')->firs
                             <td class="p-10">
                                 <span class="d-block text-center">
                                     @php($restaurant_logo = \App\Model\BusinessSetting::where(['key'=>'logo'])->first()->value)
-                                    <img class="mb-2 mail-img-2" onerror="this.src='{{ asset('storage/app/public/restaurant/' . $restaurant_logo) }}'"
-                                    src="{{ asset('storage/app/public/email_templatee/') }}/{{ $data['logo']??'' }}" id="logoViewer" alt="">
+                                    <img class="mb-2 mail-img-2" onerror="this.src='{{ asset('storage/restaurant/' . $restaurant_logo) }}'"
+                                    src="{{ asset('storage/email_templatee/') }}/{{ $data['logo']??'' }}" id="logoViewer" alt="">
                                     <h3 class="mb-3 mt-0">{{ translate('Order_Info') }}</h3>
                                 </span>
                             </td>

@@ -75,7 +75,7 @@
                                             {{$promotion['promotion_name']}}
                                         @else
                                             <div class="promotion-image-section">
-                                                <img class="mx-80px" src="{{asset('storage/app/public/promotion')}}/{{$promotion['promotion_name']}}">
+                                                <img class="mx-80px" src="{{asset('storage/promotion')}}/{{$promotion['promotion_name']}}">
                                             </div>
                                         @endif
                                     </td>

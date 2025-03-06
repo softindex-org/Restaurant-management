@@ -287,7 +287,7 @@
                                 @foreach(json_decode($review['attachment'], true) as $image)
                                     <div class="avatar avatar-circle">
                                         <img class="cursor-pointer rounded img-fit custom-img-fit image-preview"
-                                             src="{{asset('storage/app/public/review/'.$image)}}"
+                                             src="{{asset('storage/review/'.$image)}}"
                                              alt="Image Description">
                                     </div>
                                 @endforeach

@@ -25,7 +25,7 @@ class BranchPromotion extends Model
         $path = asset('assets/admin/img/160x160/img2.jpg');
 
         if (!is_null($image) && Storage::disk('public')->exists('promotion/' . $image)) {
-            $path = asset('storage/app/public/promotion/' . $image);
+            $path = asset('storage/promotion/' . $image);
         }
         return $path;
     }

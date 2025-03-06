@@ -2593,4 +2593,5 @@
   'Select_Data_Type' => 'Select Data Type',
   'STEP 1' => 'STEP 1',
   'Update_Table' => 'Update Table',
+  'wallet_transactions' => 'Wallet transactions',
 );

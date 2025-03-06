@@ -24,7 +24,7 @@ class Notification extends Model
         $path = asset('assets/admin/img/icons/upload_img2.png');
 
         if (!is_null($image) && Storage::disk('public')->exists('notification/' . $image)) {
-            $path = asset('storage/app/public/notification/' . $image);
+            $path = asset('storage/notification/' . $image);
         }
         return $path;
     }

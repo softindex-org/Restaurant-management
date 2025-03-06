@@ -8,11 +8,11 @@
                     <a class="navbar-brand" href="{{route('branch.dashboard')}}" aria-label="Front">
                         <img class="navbar-brand-logo" style="object-fit: contain;"
                              onerror="this.src='{{asset('assets/admin/img/160x160/img2.jpg')}}'"
-                             src="{{asset('storage/app/public/restaurant/'.$restaurantLogo)}}"
+                             src="{{asset('storage/restaurant/'.$restaurantLogo)}}"
                              alt="{{ translate('logo') }}">
                         <img class="navbar-brand-logo-mini" style="object-fit: contain;"
                              onerror="this.src='{{asset('assets/admin/img/160x160/img2.jpg')}}'"
-                             src="{{asset('storage/app/public/restaurant/'.$restaurantLogo)}}" alt="{{ translate('logo') }}">
+                             src="{{asset('storage/restaurant/'.$restaurantLogo)}}" alt="{{ translate('logo') }}">
                     </a>
 
                     <button type="button" class="js-navbar-vertical-aside-toggle-invoker navbar-vertical-aside-toggle btn btn-icon btn-xs btn-ghost-dark">

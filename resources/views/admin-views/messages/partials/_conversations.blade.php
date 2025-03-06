@@ -50,8 +50,8 @@
                                 @foreach($image_array as $key=>$image)
                                     @php($image_url = $image)
                                     <div class="col-12 @if(count(json_decode($con->image, true)) > 1) col-md-6 @endif">
-                                        <a href="{{asset('storage/app/public/conversation').'/'.$image_url}}" data-lightbox="{{$con->id . $image_url }}" >
-                                            <img class="rounded" src="{{asset('storage/app/public/conversation').'/'.$image_url}}" onerror="this.src='{{asset('assets/admin/img/900x400/img1.jpg')}}'" />
+                                        <a href="{{asset('storage/conversation').'/'.$image_url}}" data-lightbox="{{$con->id . $image_url }}" >
+                                            <img class="rounded" src="{{asset('storage/conversation').'/'.$image_url}}" onerror="this.src='{{asset('assets/admin/img/900x400/img1.jpg')}}'" />
                                         </a><br>
                                     </div>
                                 @endforeach

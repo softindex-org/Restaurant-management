@@ -44,7 +44,7 @@ class Branch extends Authenticatable
         $path = asset('assets/admin/img/160x160/img2.jpg');
 
         if (!is_null($image) && Storage::disk('public')->exists('branch/' . $image)) {
-            $path = asset('storage/app/public/branch/' . $image);
+            $path = asset('storage/branch/' . $image);
         }
         return $path;
     }
@@ -55,7 +55,7 @@ class Branch extends Authenticatable
         $path = asset('assets/admin/img/160x160/img2.jpg');
 
         if (!is_null($image) && Storage::disk('public')->exists('branch/' . $image)) {
-            $path = asset('storage/app/public/branch/' . $image);
+            $path = asset('storage/branch/' . $image);
         }
         return $path;
     }

@@ -30,7 +30,7 @@ class Banner extends Model
         $path = asset('assets/admin/img/icons/upload_img2.png');
 
         if (!is_null($image) && Storage::disk('public')->exists('banner/' . $image)) {
-            $path = asset('storage/app/public/banner/' . $image);
+            $path = asset('storage/banner/' . $image);
         }
         return $path;
     }

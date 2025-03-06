@@ -36,7 +36,7 @@ class Cuisine extends Model
         $path = asset('assets/admin/img/160x160/img2.jpg');
 
         if (!is_null($image) && Storage::disk('public')->exists('cuisine/' . $image)) {
-            $path = asset('storage/app/public/cuisine/' . $image);
+            $path = asset('storage/cuisine/' . $image);
         }
         return $path;
     }

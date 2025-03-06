@@ -105,7 +105,7 @@ $lang = \App\CentralLogics\Helpers::get_default_language();
             <td style="padding:30px 30px 0">
                 <img class="mail-img-2"
                 @if ($data['icon'])
-                src="{{ asset('storage/app/public/email_template/') }}/{{ $data['icon']??'' }}"
+                src="{{ asset('storage/email_template/') }}/{{ $data['icon']??'' }}"
                 @else
                 src='{{ asset('public/assets/admin/img/email-template-img.png') }}'
                 @endif
@@ -133,7 +133,7 @@ $lang = \App\CentralLogics\Helpers::get_default_language();
                 <span class="d-block" style="margin-bottom:20px">{{ $company_name }}</span>
 
                 @if ($logo)
-                <img style="width:120px;display:block;margin:10px auto" src="{{ asset('storage/app/public/restaurant/' . $logo) }}" alt="public/img">
+                <img style="width:120px;display:block;margin:10px auto" src="{{ asset('storage/restaurant/' . $logo) }}" alt="public/img">
                 @else
                 <img style="width:120px;display:block;margin:10px auto"  src="{{asset('public/assets/admin/img/favicon.png')}}" alt="public/img">
                 @endif

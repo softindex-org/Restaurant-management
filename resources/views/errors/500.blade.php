@@ -7,7 +7,7 @@
     <title>{{ translate('Error 500') }} | {{ \App\CentralLogics\Helpers::get_business_settings('restaurant_name') }}</title>
 
     @php($icon = \App\Model\BusinessSetting::where(['key' => 'fav_icon'])->first()?->value??'')
-    <link rel="icon" type="image/x-icon" href="{{ asset('storage/app/public/restaurant/' . $icon ?? '') }}">
+    <link rel="icon" type="image/x-icon" href="{{ asset('storage/restaurant/' . $icon ?? '') }}">
 
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&amp;display=swap" rel="stylesheet">
 

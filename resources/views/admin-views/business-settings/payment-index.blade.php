@@ -112,7 +112,7 @@
                                 <div class="card-body">
                                     <div class="payment--gateway-img">
                                         <img style="height: 80px"
-                                             src="{{asset('storage/app/public/payment_modules/gateway_image')}}/{{$additional_data != null ? $additional_data->gateway_image : ''}}"
+                                             src="{{asset('storage/payment_modules/gateway_image')}}/{{$additional_data != null ? $additional_data->gateway_image : ''}}"
                                              onerror="this.src='{{asset('assets/admin/img/placeholder.png')}}'"
                                              alt="public">
                                     </div>

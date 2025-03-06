@@ -132,7 +132,7 @@ class Product extends Model
         $path = asset('assets/admin/img/160x160/img2.jpg');
 
         if (!is_null($image) && Storage::disk('public')->exists('product/' . $image)) {
-            $path = asset('storage/app/public/product/' . $image);
+            $path = asset('storage/product/' . $image);
         }
         return $path;
     }

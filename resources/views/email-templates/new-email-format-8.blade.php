@@ -150,7 +150,7 @@
             <tr>
                 <td class="main-table-td">
                     <img class="mail-img-1"  @if ($data?->logo)
-                    src="{{ asset('storage/app/public/email_template/') }}/{{ $data['logo']??'' }}"
+                    src="{{ asset('storage/email_template/') }}/{{ $data['logo']??'' }}"
                     @else
                     src='{{ asset('public/assets/admin/img/blank1.png') }}'
                     @endif id="logoViewer" alt="">

@@ -24,7 +24,7 @@ class Admin extends Authenticatable
         $path = asset('assets/admin/img/400x400/img2.jpg');
 
         if (!is_null($image) && Storage::disk('public')->exists('admin/' . $image)) {
-            $path = asset('storage/app/public/admin/' . $image);
+            $path = asset('storage/admin/' . $image);
         }
         return $path;
     }
@@ -36,7 +36,7 @@ class Admin extends Authenticatable
         if (is_array($imageUrlArray)) {
             foreach ($imageUrlArray as $key => $item) {
                 if (Storage::disk('public')->exists('admin/' . $item)) {
-                    $imageUrlArray[$key] = asset('storage/app/public/admin/'. $item) ;
+                    $imageUrlArray[$key] = asset('storage/admin/'. $item) ;
                 } else {
                     $imageUrlArray[$key] = asset('assets/admin/img/400x400/img2.jpg');
                 }

@@ -170,7 +170,7 @@
                 <td class="main-table-td">
                     <div class="text-center">
                     <img class="mail-img-2" onerror="this.src='{{ asset('public/assets/admin/img/blank3.png') }}'"
-                    src="{{ asset('storage/app/public/email_template/') }}/{{ $data['icon']??'' }}" id="iconViewer" alt="">
+                    src="{{ asset('storage/email_template/') }}/{{ $data['icon']??'' }}" id="iconViewer" alt="">
                         <h2 id="mail-title" class="mt-2">{{ $title?? translate('Main_Title_or_Subject_of_the_Mail') }}</h2>
                         <div class="mb-2" id="mail-body">{!! $body?? translate('Hi_Sabrina,') !!}</div>
                     </div>

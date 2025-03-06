@@ -68,7 +68,7 @@ class NotificationController extends Controller
         $notification->status = 1;
         $notification->save();
 
-        $notification->image = asset('storage/app/public/notification') . '/' . $notification->image;
+        $notification->image = asset('storage/notification') . '/' . $notification->image;
 
         try {
             Helpers::send_push_notif_to_topic($notification, 'notify', 'general');

@@ -9,7 +9,7 @@
                         @php($restaurantLogo=\App\Model\BusinessSetting::where(['key'=>'logo'])->first()->value)
                         <img class="" style="width: 200px!important"
                              onerror="this.src='{{asset('assets/admin/img/160x160/img2.jpg')}}'"
-                             src="{{asset('storage/app/public/restaurant/'.$restaurantLogo)}}"
+                             src="{{asset('storage/restaurant/'.$restaurantLogo)}}"
                              alt="Logo">
                         <br><hr>
 

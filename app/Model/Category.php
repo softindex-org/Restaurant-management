@@ -52,7 +52,7 @@ class Category extends Model
         $path = asset('assets/admin/img/160x160/img2.jpg');
 
         if (!is_null($image) && Storage::disk('public')->exists('category/' . $image)) {
-            $path = asset('storage/app/public/category/' . $image);
+            $path = asset('storage/category/' . $image);
         }
         return $path;
     }
@@ -63,7 +63,7 @@ class Category extends Model
         $path = asset('assets/admin/img/160x160/img2.jpg');
 
         if (!is_null($image) && Storage::disk('public')->exists('category/banner/' . $image)) {
-            $path = asset('storage/app/public/category/banner/' . $image);
+            $path = asset('storage/category/banner/' . $image);
         }
         return $path;
     }

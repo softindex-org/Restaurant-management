@@ -29,7 +29,7 @@
                             @php($restaurantLogo=\App\Model\BusinessSetting::where(['key'=>'logo'])->first()?->value)
                             <div class="qr-wrapper" style="background: url({{asset('assets/admin/img/qr-bg.png')}}) no-repeat center center / 100% 100%">
                                 <a href="#" class="qr-logo">
-                                    <img src="{{asset('storage/app/public/qrcode/'.$data['logo'])}}" class="mw-100"
+                                    <img src="{{asset('storage/qrcode/'.$data['logo'])}}" class="mw-100"
                                          onerror="this.src='{{asset('assets/admin/img/logo2.png')}}'" alt="">
 
                                 </a>

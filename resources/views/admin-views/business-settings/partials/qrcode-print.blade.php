@@ -21,7 +21,7 @@
                             <div class="qr-wrapper" style="background: url({{asset('assets/admin/img/qr-bg.png')}}) no-repeat scroll 0% 0% / 100% 100% !important; -webkit-print-color-adjust: exact !important; color-adjust: exact !important; print-color-adjust: exact !important; " id="printableArea">
                                 <div class="d-flex justify-content-center py-3">
                                     <a href="" class="qr-logo">
-                                        <img src="{{asset('storage/app/public/restaurant/'.$restaurantLogo)}}" class="mw-100"
+                                        <img src="{{asset('storage/restaurant/'.$restaurantLogo)}}" class="mw-100"
                                              onerror="this.src='{{asset('assets/admin/img/logo2.png')}}'" alt="" width="164">
                                     </a>
                                 </div>

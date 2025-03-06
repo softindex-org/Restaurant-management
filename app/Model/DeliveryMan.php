@@ -35,7 +35,7 @@ class DeliveryMan extends Authenticatable
         $path = asset('assets/admin/img/160x160/img1.jpg');
 
         if (!is_null($image) && Storage::disk('public')->exists('delivery-man/' . $image)) {
-            $path = asset('storage/app/public/delivery-man/' . $image);
+            $path = asset('storage/delivery-man/' . $image);
         }
         return $path;
     }
@@ -47,7 +47,7 @@ class DeliveryMan extends Authenticatable
         if (is_array($imageUrlArray)) {
             foreach ($imageUrlArray as $key => $item) {
                 if (Storage::disk('public')->exists('delivery-man/' . $item)) {
-                    $imageUrlArray[$key] = asset('storage/app/public/delivery-man/'. $item) ;
+                    $imageUrlArray[$key] = asset('storage/delivery-man/'. $item) ;
                 } else {
                     $imageUrlArray[$key] = asset('assets/admin/img/160x160/img1.jpg');
                 }

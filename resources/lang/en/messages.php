@@ -2592,4 +2592,5 @@
   'STEP 2' => 'STEP 2',
   'Select_Data_Type' => 'Select Data Type',
   'STEP 1' => 'STEP 1',
+  'Update_Table' => 'Update Table',
 );

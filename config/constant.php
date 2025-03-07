@@ -25,6 +25,7 @@ const MANAGEMENT_SECTION = [
     'help_and_support_management' => 'help_and_support_management',
     'report_and_analytics_management' => 'report_and_analytics_management',
     'user_management' => 'user_management',
+    'hall_management' => 'hall_management',
     'table_management' => 'table_management',
     'system_management' => 'system_management',
 ];

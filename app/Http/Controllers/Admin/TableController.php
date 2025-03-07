@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Model\Branch;
+use App\Model\Hall;
 use App\Model\Table;
 use App\CentralLogics\Helpers;
 use Brian2694\Toastr\Facades\Toastr;
@@ -17,6 +18,7 @@ class TableController extends Controller
 {
     public function __construct(
         private Branch $branch,
+        private Hall $hall,
         private Table $table,
     ) {}
 
@@ -26,12 +28,13 @@ class TableController extends Controller
      */
     public function list(Request $request): Renderable
     {
-        $branches = $this->branch->orderBy('id', 'DESC')->get();
+        // $branches = $this->branch->orderBy('id', 'DESC')->get();
+        $halls = $this->hall->orderBy('id', 'DESC')->get();
         $search = $request['search'];
         $key = explode(' ', $request['search']);
 
         $tables = $this->table
-            ->with('branch')
+            ->with('hall')
             ->when($search!=null, function($query) use($key){
                 foreach ($key as $value) {
                     $query->where('number', 'like', "%{$value}%");
@@ -40,7 +43,7 @@ class TableController extends Controller
             ->orderBy('id', 'DESC')
             ->paginate(Helpers::getPagination());
 
-        return view('admin-views.table.list', compact('tables','search', 'branches'));
+        return view('admin-views.table.list', compact('tables','search', 'halls'));
     }
 
     /**
@@ -53,22 +56,25 @@ class TableController extends Controller
             'number'  => [
                 'required',
                 Rule::unique('tables')->where(function ($query) use ($request) {
-                    return $query->where(['number' => $request->number, 'branch_id' => $request->branch_id]);
+                    return $query->where(['number' => $request->number, 'hall_id' => $request->hall_id]);
                 }),
             ],
-            'branch_id' => 'required',
+            // 'branch_id' => 'required',
+            'hall_id' => 'required',
             'capacity' => 'required|min:1|max:99',
         ], [
             'number.required' => translate('Table number is required!'),
-            'number.unique' => translate('Table number is already exist in this branch!'),
+            'number.unique' => translate('Table number is already exist in this hall!'),
             'capacity.required' => translate('Table capacity is required!'),
-            'branch_id.required' => translate('Branch select is required!'),
+            // 'branch_id.required' => translate('Branch select is required!'),
+            'hall_id.required' => translate('Hall select is required!'),
         ]);
 
         $table = $this->table;
         $table->number = $request->number;
         $table->capacity = $request->capacity;
-        $table->branch_id = $request->branch_id;
+        // $table->branch_id = $request->branch_id;
+        $table->hall_id = $request->hall_id;
         $table->is_active = 1;
         $table->save();
 
@@ -96,10 +102,11 @@ class TableController extends Controller
      */
     public function edit($id): Renderable
     {
-        $branches = $this->branch->orderBy('id', 'DESC')->get();
+        // $branches = $this->branch->orderBy('id', 'DESC')->get();
+        $halls = $this->hall->orderBy('id', 'DESC')->get();
         $table = $this->table->where(['id' => $id])->first();
 
-        return view('admin-views.table.edit', compact('table', 'branches'));
+        return view('admin-views.table.edit', compact('table', 'halls'));
     }
 
     /**
@@ -113,23 +120,26 @@ class TableController extends Controller
             'number'  => [
                 'required',
                 Rule::unique('tables')->where(function ($query) use ($request, $id) {
-                    return $query->where(['number' => $request->number, 'branch_id' => $request->branch_id])
+                    return $query->where(['number' => $request->number, 'hall_id' => $request->hall_id])
                         ->whereNotIn('id', [$id]);
                 }),
             ],
-            'branch_id' => 'required',
+            // 'branch_id' => 'required',
+            'hall_id' => 'required',
             'capacity' => 'required|min:1|max:99',
         ], [
             'number.required' => translate('Table number is required!'),
-            'number.unique' => translate('Table number is already exist in this branch!'),
+            'number.unique' => translate('Table number is already exist in this hall!'),
             'capacity.required' => translate('Table capacity is required!'),
-            'branch_id.required' => translate('Branch select is required!'),
+            // 'branch_id.required' => translate('Branch select is required!'),
+            'hall_id.required' => translate('Hall select is required!'),
         ]);
 
         $table = $this->table->find($id);
         $table->number = $request->number;
         $table->capacity = $request->capacity;
-        $table->branch_id = $request->branch_id;
+        // $table->branch_id = $request->branch_id;
+        $table->hall_id = $request->hall_id;
         $table->update();
 
         Toastr::success(translate('Table updated successfully!'));
@@ -154,8 +164,9 @@ class TableController extends Controller
      */
     public function index(): Renderable
     {
-        $branches = $this->branch->orderBy('id', 'DESC')->get();
-        return view('admin-views.table.index2', compact('branches'));
+        // $branches = $this->branch->orderBy('id', 'DESC')->get();
+        $halls = $this->hall->orderBy('id', 'DESC')->get();
+        return view('admin-views.table.index2', compact('halls'));
     }
 
     /**
@@ -171,6 +182,25 @@ class TableController extends Controller
                 });
             }])
             ->where(['branch_id' => $request->branch_id, 'is_active' => '1'])
+            ->get()
+            ->toArray();
+
+        $view = view('admin-views.table.table_available_card2', compact('tables'))->render();
+
+        return response()->json([
+            'view' => $view,
+        ]);
+    }
+    
+    public function getTableListByHall(Request $request): JsonResponse
+    {
+        $tables = $this->table
+            ->with(['order'=> function ($q){
+                $q->whereHas('table_order', function($q){
+                    $q->where('branch_table_token_is_expired', 0);
+                });
+            }])
+            ->where(['hall_id' => $request->hall_id, 'is_active' => '1'])
             ->get()
             ->toArray();
 

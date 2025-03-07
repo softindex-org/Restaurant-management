@@ -754,6 +754,45 @@
 
 
 
+                    <!-- Hall Management-->
+                    @if(Helpers::module_permission_check(MANAGEMENT_SECTION['hall_management']))
+                            <li class="nav-item">
+                                <small class="nav-subtitle">{{translate('hall')}} {{translate('section')}}</small>
+                                <small class="tio-more-horizontal nav-subtitle-replacer"></small>
+                            </li>
+
+                            <li class="navbar-vertical-aside-has-menu {{Request::is('admin/hall/list') || Request::is('admin/hall/update*') || Request::is('admin/promotion/create') || Request::is('admin/promotion/edit*') || Request::is('admin/hall/index')?'active':''}}">
+                                <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle" href="javascript:">
+                                    <i class="tio-gift nav-icon"></i>
+                                    <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">
+                                            {{translate('hall')}}
+                                        </span>
+                                    <label class="badge badge-danger">{{translate('addon')}}</label>
+                                </a>
+                                <ul class="js-navbar-vertical-aside-submenu nav nav-sub" style="top: 391.823px; display: {{Request::is('admin/hall/list') || Request::is('admin/hall/update*') || Request::is('admin/hall/index') || Request::is('admin/promotion/*')?'block':''}};">
+                                    <li class="nav-item {{Request::is('admin/hall/list') || Request::is('admin/hall/update*') ?'active':''}}">
+                                        <a class="nav-link " href="{{route('admin.hall.list')}}">
+                                            <span class="tio-circle nav-indicator-icon"></span>
+                                            <span class="text-truncate">{{translate('list')}}</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item {{Request::is('admin/hall/index')?'active':''}}">
+                                        <a class="nav-link" href="{{route('admin.hall.index')}}">
+                                            <span class="tio-circle nav-indicator-icon"></span>
+                                            <span class="text-truncate">{{translate('availability')}}</span>
+                                        </a>
+                                    </li>
+                                    {{-- <li class="nav-item {{Request::is('admin/promotion/create') || Request::is('admin/promotion/edit*')?'active':''}}">
+                                        <a class="nav-link" href="{{route('admin.promotion.create')}}">
+                                            <span class="tio-circle nav-indicator-icon"></span>
+                                            <span class="text-truncate">{{translate('promotion_setup')}}</span>
+                                        </a>
+                                    </li> --}}
+                                </ul>
+                            </li>
+                        @endif
+                    <!-- Table Management End-->
+
                     <!-- Table Management-->
                     @if(Helpers::module_permission_check(MANAGEMENT_SECTION['table_management']))
                             <li class="nav-item">
@@ -782,12 +821,12 @@
                                             <span class="text-truncate">{{translate('availability')}}</span>
                                         </a>
                                     </li>
-                                    <li class="nav-item {{Request::is('admin/promotion/create') || Request::is('admin/promotion/edit*')?'active':''}}">
+                                    {{-- <li class="nav-item {{Request::is('admin/promotion/create') || Request::is('admin/promotion/edit*')?'active':''}}">
                                         <a class="nav-link" href="{{route('admin.promotion.create')}}">
                                             <span class="tio-circle nav-indicator-icon"></span>
                                             <span class="text-truncate">{{translate('promotion_setup')}}</span>
                                         </a>
-                                    </li>
+                                    </li> --}}
                                 </ul>
                             </li>
                         @endif

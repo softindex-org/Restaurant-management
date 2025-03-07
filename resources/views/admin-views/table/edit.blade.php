@@ -36,6 +36,18 @@
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
+                                <label class="input-label">{{translate('Select_Hall')}}
+                                <span class="text-danger">*</span></label>
+                                <select name="hall_id" class="custom-select" required>
+                                    <option disabled selected>{{ translate('--select_Hall--') }}</option>
+                                    @foreach($halls as $hall)
+                                        <option value="{{$hall['id']}}" {{ $table->hall_id == $hall->id ? 'selected' : '' }}>{{$hall['name']}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        {{-- <div class="col-md-4">
+                            <div class="form-group">
                                 <label class="input-label">{{translate('Select_Branch')}}
                                 <span class="text-danger">*</span></label>
                                 <select name="branch_id" class="custom-select" required>
@@ -45,7 +57,7 @@
                                     @endforeach
                                 </select>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                     <div class="d-flex justify-content-end gap-3">
                         <button type="reset" class="btn btn-secondary">{{translate('reset')}}</button>

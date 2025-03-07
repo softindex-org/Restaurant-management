@@ -29,10 +29,10 @@
 
         <div class="card card-body">
             <div class="d-flex gap-3 flex-wrap align-items-center justify-content-between mb-4">
-                <select name="branch_id" class="custom-select max-w220" id="select_branch" required>
-                    <option value="" selected disabled>{{ translate('--Select_Branch--') }}</option>
-                    @foreach($branches as $branch)
-                        <option value="{{$branch['id']}}">{{$branch['name']}}</option>
+                <select name="hall_id" class="custom-select max-w220" id="select_hall" required>
+                    <option value="" selected disabled>{{ translate('--Select_Hall--') }}</option>
+                    @foreach($halls as $hall)
+                        <option value="{{$hall['id']}}">{{$hall['name']}}</option>
                     @endforeach
                 </select>
             </div>
@@ -46,16 +46,16 @@
 @push('script_2')
     <script>
         $(document).ready(function (){
-            $('#select_branch').on('change', function (){
-                var branch = this.value;
-                console.log(branch);
+            $('#select_hall').on('change', function (){
+                var hall = this.value;
+                console.log(hall);
                 $('#table_list').html('');
                 $('#table_title').html('');
                 $.ajax({
-                    url: "{{ url('admin/table/branch-table') }}",
+                    url: "{{ url('admin/table/hall-table') }}",
                     type: "POST",
                     data: {
-                        branch_id : branch,
+                        hall_id : hall,
                         _token : '{{ csrf_token() }}',
                     },
                     dataType : 'json',

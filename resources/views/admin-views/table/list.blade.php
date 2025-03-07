@@ -36,6 +36,17 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
+                                        <label class="input-label" for="exampleFormControlSelect1">{{translate('Select_Hall')}} <span class="text-danger">*</span></label>
+                                        <select name="hall_id" class="custom-select" required>
+                                            <option value="" selected>{{ translate('--select--') }}</option>
+                                            @foreach($halls as $hall)
+                                                <option value="{{$hall['id']}}">{{$hall['name']}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                                {{-- <div class="col-md-4">
+                                    <div class="form-group">
                                         <label class="input-label" for="exampleFormControlSelect1">{{translate('Select_Branch')}} <span class="text-danger">*</span></label>
                                         <select name="branch_id" class="custom-select" required>
                                             <option value="" selected>{{ translate('--select--') }}</option>
@@ -44,7 +55,7 @@
                                             @endforeach
                                         </select>
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
                             <div class="d-flex justify-content-end gap-3">
                                 <button type="reset" class="btn btn-secondary">{{translate('reset')}}</button>
@@ -85,7 +96,8 @@
                                     <th>{{translate('SL')}}</th>
                                     <th>{{translate('Table Number')}}</th>
                                     <th>{{translate('Table Capacity')}}</th>
-                                    <th>{{translate('Branch')}}</th>
+                                    <th>{{translate('Hall_Name')}}</th>
+                                    {{-- <th>{{translate('Branch')}}</th> --}}
                                     <th>{{translate('Status')}}</th>
                                     <th class="text-center">{{translate('action')}}</th>
                                 </tr>
@@ -96,7 +108,8 @@
                                         <th scope="row">{{$tables->firstitem()+$k}}</th>
                                         <td>{{$table['number']}}</td>
                                         <td>{{$table['capacity']}}</td>
-                                        <td class="{{ $table?->branch?->name? '' : 'text-danger' }}">{{$table?->branch?->name ?? translate('Branch Deleted')}}</td>
+                                        <td class="{{ $table?->hall?->name? '' : 'text-danger' }}">{{$table?->hall?->name ?? translate('Hall Deleted')}}</td>
+                                        {{-- <td class="{{ $table?->branch?->name? '' : 'text-danger' }}">{{$table?->branch?->name ?? translate('Branch Deleted')}}</td> --}}
                                         <td>
                                             <label class="switcher">
                                                 <input type="checkbox" class="switcher_input redirect-url"

@@ -74,7 +74,7 @@
                 $('#table_list').html('');
                 $('#table_title').html('');
                 $.ajax({
-                    url: "{{ url('admin/table/branch-table') }}",
+                    url: "{{ url('admin/table/hall-table') }}",
                     type: "POST",
                     data: {
                         branch_id : branch,

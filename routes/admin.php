@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\HallController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\Admin\AddonController;
@@ -520,6 +521,16 @@ Route::group(['namespace' => 'Admin', 'as' => 'admin.'], function () {
             Route::get('status/{id}/{status}', [KitchenController::class, 'status'])->name('status');
         });
 
+        Route::group(['prefix' => 'hall', 'as' => 'hall.', 'middleware' => ['module:hall_management']], function () {
+            Route::get('list', [HallController::class, 'list'])->name('list');
+            Route::post('store', [HallController::class, 'store'])->name('store');
+            Route::get('update/{id}', [HallController::class, 'edit'])->name('update');
+            Route::post('update/{id}', [HallController::class, 'update']);
+            Route::delete('delete/{id}', [HallController::class, 'delete'])->name('delete');
+            Route::get('status/{id}/{status}', [HallController::class, 'status'])->name('status');
+            Route::get('index', [HallController::class, 'index'])->name('index');
+        });
+
         Route::group(['prefix' => 'table', 'as' => 'table.', 'middleware' => ['module:table_management', 'app_activate:' . APPS['table_app']['software_id']]], function () {
             Route::get('list', [TableController::class, 'list'])->name('list');
             Route::post('store', [TableController::class, 'store'])->name('store');
@@ -528,6 +539,7 @@ Route::group(['namespace' => 'Admin', 'as' => 'admin.'], function () {
             Route::delete('delete/{id}', [TableController::class, 'delete'])->name('delete');
             Route::get('status/{id}/{status}', [TableController::class, 'status'])->name('status');
             Route::get('index', [TableController::class, 'index'])->name('index');
+            Route::post('hall-table', [TableController::class, 'getTableListByHall'])->name('hall-table');
             Route::post('branch-table', [TableController::class, 'getTableListByBranch'])->name('branch-table');
         });
 

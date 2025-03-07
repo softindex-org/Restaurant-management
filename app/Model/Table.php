@@ -28,4 +28,9 @@ class Table extends Model
     {
         return $this->hasMany(TableOrder::class, 'table_id', 'id');
     }
+
+    public function hall(): BelongsTo
+    {
+        return $this->belongsTo(Hall::class, 'hall_id', 'id');
+    }
 }

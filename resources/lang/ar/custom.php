@@ -1,0 +1,27 @@
+<?php
+
+return [
+  'email_registration_ready' => 'البريد الإلكتروني جاهز للتسجيل',
+'number_registration_ready' => 'رقم الهاتف جاهز للتسجيل',
+'token_not_found' => 'الرمز المميز غير موجود!',
+'first_name_required' => 'حقل الاسم الأول مطلوب.',
+'last_name_required' => 'حقل الاسم الأخير مطلوب.',
+'login_failed' => 'فشل تسجيل الدخول، يرجى التحقق من بيانات الاعتماد مرة أخرى.',
+'email_sent' => 'تم إرسال البريد الإلكتروني بنجاح.',
+'email_not_found' => 'عنوان البريد الإلكتروني غير موجود!',
+'valid_token' => 'الرمز المميز متطابق، يمكنك المتابعة',
+'invalid_token' => 'الرمز المميز غير صالح',
+'password_changed' => 'تم تغيير كلمة المرور بنجاح!',
+'password_not_matched' => 'كلمة المرور غير متطابقة!',
+'coupon_limit_over' => 'لقد تجاوزت الحد المسموح لاستخدام رمز الكوبون!',
+'coupon_not_found' => 'غير موجود!',
+'no_data_found' => 'لا توجد بيانات!',
+'update_success' => 'تم التحديث بنجاح!',
+'added_success' => 'تمت الإضافة بنجاح!',
+'removed_success' => 'تمت الإزالة بنجاح!',
+'already_added' => 'موجود بالفعل في قائمة الرغبات',
+'order_success' => 'تم تقديم الطلب بنجاح!',
+'order_canceled' => 'تم إلغاء الطلب',
+'payment_method_updated' => 'تم تحديث طريقة الدفع',
+'review_submit_success' => 'تم إرسال التقييم بنجاح!',
+];

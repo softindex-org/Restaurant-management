@@ -2623,4 +2623,6 @@
   'enter valid people number between 1 to 6' => 'Enter valid people number between 1 to 6',
   'Push notification send failed for Customer!' => 'Push notification send failed for Customer!',
   'wallet_bonuses' => 'Wallet bonuses',
+  'translations' => 'Translations',
+  'track_deliverymen' => 'Track deliverymen',
 );
